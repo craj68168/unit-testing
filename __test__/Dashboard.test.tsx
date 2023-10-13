@@ -1,6 +1,6 @@
-import Dashboard from "@/app/dashboard";
+import Dashboard, { myFuction, myVariable } from "@/app/dashboard";
 import "@testing-library/jest-dom";
-import { render, screen } from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
 
 describe("Dashboard page", () => {
   it("Should render properly", () => {
@@ -22,5 +22,27 @@ describe("Dashboard page", () => {
       selector: "p",
     });
     expect(ele).toBeInTheDocument();
+  });
+
+  it("Fuction or variable", () => {
+    expect(typeof myFuction).toEqual("function");
+  });
+
+  it("Fuction or variable", () => {
+    expect(typeof myFuction).toBe("function");
+  });
+
+  it("Fuction or variable", () => {
+    expect(typeof myVariable).toBe("string");
+  });
+
+  test("Check if a variable is undefined", () => {
+    const myVariable = undefined;
+    expect(myVariable).toBeUndefined();
+  });
+
+  test("Check if a variable is defined", () => {
+    const myVariable = "some value";
+    expect(myVariable).toBeDefined();
   });
 });
