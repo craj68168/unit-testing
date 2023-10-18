@@ -3,11 +3,12 @@ import { render, screen } from "@testing-library/react";
 
 describe("should render properly", () => {
   it("should contain the text", () => {
-    render(<Home />);
+    render(<Home />); // ARRANGE
     const ele = screen.getByRole("heading", {
+      //ACTION
       name: /Unit testing/i,
     });
-    expect(ele).toBeInTheDocument();
+    expect(ele).toBeInTheDocument(); //ASSERT
   });
 
   it("should contain name 'Raj Chaudhary'", () => {

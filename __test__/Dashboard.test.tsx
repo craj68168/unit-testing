@@ -1,6 +1,10 @@
-import Dashboard, { myFuction, myVariable } from "@/app/dashboard";
+import Dashboard, {
+  funcBool,
+  myFunction as myFunction,
+  myVariable,
+} from "@/app/dashboard";
 import "@testing-library/jest-dom";
-import { render, screen, within } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 
 describe("Dashboard page", () => {
   it("Should render properly", () => {
@@ -12,7 +16,7 @@ describe("Dashboard page", () => {
 
   it("Should content a text 'testing' ", () => {
     render(<Dashboard />);
-    const ele = screen.getByText(/testing/i); // i means doesnot matter all caps or case sensitive
+    const ele = screen.getByText(/testing/i); // i means does not matter all caps or case sensitive
     expect(ele).toBeInTheDocument();
   });
 
@@ -24,15 +28,15 @@ describe("Dashboard page", () => {
     expect(ele).toBeInTheDocument();
   });
 
-  it("Fuction or variable", () => {
-    expect(typeof myFuction).toEqual("function");
+  it("Function or variable", () => {
+    expect(typeof myFunction).toEqual("function");
   });
 
-  it("Fuction or variable", () => {
-    expect(typeof myFuction).toBe("function");
+  it("Function or variable", () => {
+    expect(typeof myFunction).toBe("function");
   });
 
-  it("Fuction or variable", () => {
+  it("Function or variable", () => {
     expect(typeof myVariable).toBe("string");
   });
 
@@ -44,5 +48,19 @@ describe("Dashboard page", () => {
   test("Check if a variable is defined", () => {
     const myVariable = "some value";
     expect(myVariable).toBeDefined();
+  });
+
+  test("Check if the function returns true", () => {
+    const result = funcBool();
+    expect(result).toBe(true);
+  });
+
+  it("If state has string or boolean", () => {
+    const { container } = render(<Dashboard />);
+    const component = container.querySelector("myState"); // Replace 'your-selector' with the actual selector to access the state
+    expect(component).toBeDefined(); // Ensure that the component or the state element is defined
+    const myState = component?.getAttribute("myState"); // Replace 'your-attribute' with the actual attribute containing the state
+    // Check if the state is either a string or a boolean
+    expect(typeof myState).toMatch(/string|boolean/);
   });
 });

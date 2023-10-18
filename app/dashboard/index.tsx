@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 
-export const myFuction = () => {
+export const myFunction = () => {
   return <p>This is Testing</p>;
 };
 export const myVariable = "Hello variable!";
+
+export function funcBool() {
+  return true;
+}
 
 const Dashboard = () => {
   return (
