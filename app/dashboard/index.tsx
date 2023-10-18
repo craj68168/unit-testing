@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 export const myFunction = () => {
   return <p>This is Testing</p>;

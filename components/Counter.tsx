@@ -5,6 +5,9 @@ import { IProps } from "./counter.types";
 const Wrapper = styled.div`
   h1 {
     margin: 10px auto;
+    span {
+      color: #f68484;
+    }
   }
 `;
 const ButtonWrapper = styled.div`
@@ -25,7 +28,9 @@ const ButtonWrapper = styled.div`
 const Counter = (props: IProps) => {
   return (
     <Wrapper>
-      <h1>Counter {props.count}</h1>
+      <h1>
+        Counter - <span>{props.count}</span>
+      </h1>
 
       <ButtonWrapper>
         <button name="incrementCount" onClick={props.incrementCount}>

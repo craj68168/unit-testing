@@ -7,6 +7,7 @@ const MainWrapper = styled.div`
   display: grid;
   place-items: center;
   align-items: center;
+  margin: 5% auto;
   h1 {
     margin: 10px auto;
   }
@@ -19,7 +20,9 @@ export default function Home() {
     setCount(count + 1);
   };
   const decrementCount = () => {
-    setCount(count - 1);
+    if (count > 0) {
+      setCount(count - 1);
+    }
   };
   return (
     <MainWrapper className="main">

@@ -11,9 +11,9 @@ describe("should render properly", () => {
     expect(ele).toBeInTheDocument(); //ASSERT
   });
 
-  it("should contain name 'Raj Chaudhary'", () => {
+  it("should contain name 'Ready to Work'", () => {
     render(<Home />);
-    const ele = screen.getByText("I forgot my name", {
+    const ele = screen.getByText("Ready to Work", {
       selector: "p",
     });
     expect(ele).toBeInTheDocument();
