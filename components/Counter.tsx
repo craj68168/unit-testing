@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { IProps } from "./counter.types";
 
 const Wrapper = styled.div`
   h1 {
@@ -21,7 +22,7 @@ const ButtonWrapper = styled.div`
   }
 `;
 
-function Counter(props: any) {
+const Counter = (props: IProps) => {
   return (
     <Wrapper>
       <h1>Counter {props.count}</h1>
@@ -30,16 +31,12 @@ function Counter(props: any) {
         <button name="incrementCount" onClick={props.incrementCount}>
           Increment
         </button>
-        <button
-          name="decrementCount"
-          onClick={props.decrementCount}
-          disabled={props.count < 1}
-        >
+        <button name="decrementCount" onClick={props.decrementCount}>
           Decrement
         </button>
       </ButtonWrapper>
     </Wrapper>
   );
-}
+};
 
 export default Counter;
