@@ -5,7 +5,7 @@ import { IProps } from "./counter.types";
 const Wrapper = styled.div`
   h1 {
     margin: 10px auto;
-    span {
+    #count-value {
       color: #f68484;
     }
   }
@@ -29,7 +29,7 @@ const Counter = (props: IProps) => {
   return (
     <Wrapper>
       <h1>
-        Counter - <span>{props.count}</span>
+        Counter - <span data-testid="count-value">{props.count}</span>
       </h1>
 
       <ButtonWrapper>

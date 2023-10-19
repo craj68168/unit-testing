@@ -1,5 +1,5 @@
 export interface IProps {
   count: number;
-  incrementCount: () => void;
-  decrementCount: () => void;
+  incrementCount?: () => void;
+  decrementCount?: () => void;
 }

@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import Counter from "./Counter";
 import user from "@testing-library/user-event";
 
@@ -25,5 +25,32 @@ describe("Counter test", () => {
 
     expect(incrementCountMock).toHaveBeenCalledTimes(1);
     expect(decrementCountMock).toHaveBeenCalledTimes(1);
+  });
+
+  it("should display the count prop and update it when buttons are clicked", () => {
+    const incrementCount = jest.fn();
+    const decrementCount = jest.fn();
+
+    const { getByTestId, getByText } = render(
+      <Counter
+        count={5}
+        incrementCount={incrementCount}
+        decrementCount={decrementCount}
+      />
+    );
+
+    const countValue = getByTestId("count-value");
+    const incrementButton = getByText("Increment");
+    const decrementButton = getByText("Decrement");
+
+    expect(countValue).toHaveTextContent("5");
+
+    fireEvent.click(incrementButton);
+    expect(incrementCount).toHaveBeenCalled();
+
+    expect(countValue).toHaveTextContent("6");
+    fireEvent.click(decrementButton);
+    expect(decrementCount).toHaveBeenCalled();
+    expect(countValue).toHaveTextContent("5");
   });
 });
