@@ -59,4 +59,10 @@ describe("Counter test", () => {
     const valueElement = getByText(/42/i);
     expect(valueElement).toBeInTheDocument();
   });
+
+  test("renders string value correctly", () => {
+    const { getByText } = render(<Counter value="Hello, World!" />);
+    const valueElement = getByText(/Hello, World!/i);
+    expect(valueElement).toBeInTheDocument();
+  });
 });
