@@ -40,6 +40,7 @@ const Counter = (props: IProps) => {
           Decrement
         </button>
       </ButtonWrapper>
+      <h1>{props.value}</h1>
     </Wrapper>
   );
 };

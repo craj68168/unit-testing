@@ -53,4 +53,10 @@ describe("Counter test", () => {
     expect(decrementCount).toHaveBeenCalled();
     expect(countValue).toHaveTextContent("5");
   });
+
+  test("renders number value correctly", () => {
+    const { getByText } = render(<Counter value={42} />);
+    const valueElement = getByText(/42/i);
+    expect(valueElement).toBeInTheDocument();
+  });
 });
